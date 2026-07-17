@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "app/api/ai/**": { "maxDuration": 60 },
     "app/api/messaging/ai/**": { "maxDuration": 60 },
@@ -8,8 +9,13 @@
     "app/api/[transport]/route.ts": { "maxDuration": 120 }
   },
   "crons": [
-    { "path": "/api/cron/daily-briefing", "schedule": "0 8 * * 1-5" },
-    { "path": "/api/cron/template-sync", "schedule": "0 6 * * *" },
-    { "path": "/api/cron/stage-evaluations", "schedule": "* * * * *" }
+    {
+      "path": "/api/cron/template-sync",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "path": "/api/cron/daily-briefing",
+      "schedule": "0 8 * * *"
+    }
   ]
 }
